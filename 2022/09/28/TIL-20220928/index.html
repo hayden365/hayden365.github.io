@@ -20,29 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hayden365.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="오늘은.. 어제에 이어서 깃&#x2F;깃허브를 CLI환경에서 다뤘다.git branch newbranchbranch에 새로운내용 add, commit 후.main branch로 돌아와서  12git switch main newbranch의 commit과 main을 합친다. 1git merge newbranch branch에서 작성한 항목과 기존의 main의">
+    <meta name="description" content="오늘은~ git branching model들을 배웠습니다.회사마다 관리하는 branching model이 다르고 이것도한 파악해 두는 것이 중요하다.git flow 전략을 중점적으로 배웠습니다.develop브랜치에서 개발한 것을 차곡차곡 모은 다음 정기적으로 release하는 방식으로 이런 싸이클의 제품군에 많이 적용합니다.git-flow웹 사이트를 이용">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TIL-20220927">
-<meta property="og:url" content="http://hayden365.github.io/2022/09/27/TIL-20220927/index.html">
+<meta property="og:title" content="TIL-20220928">
+<meta property="og:url" content="http://hayden365.github.io/2022/09/28/TIL-20220928/index.html">
 <meta property="og:site_name" content="Hayden365&#39;s blog">
-<meta property="og:description" content="오늘은.. 어제에 이어서 깃&#x2F;깃허브를 CLI환경에서 다뤘다.git branch newbranchbranch에 새로운내용 add, commit 후.main branch로 돌아와서  12git switch main newbranch의 commit과 main을 합친다. 1git merge newbranch branch에서 작성한 항목과 기존의 main의">
+<meta property="og:description" content="오늘은~ git branching model들을 배웠습니다.회사마다 관리하는 branching model이 다르고 이것도한 파악해 두는 것이 중요하다.git flow 전략을 중점적으로 배웠습니다.develop브랜치에서 개발한 것을 차곡차곡 모은 다음 정기적으로 release하는 방식으로 이런 싸이클의 제품군에 많이 적용합니다.git-flow웹 사이트를 이용">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5a4456b5-3331-420a-a141-ca95c4eb81bb/Untitled.png">
-<meta property="article:published_time" content="2022-09-27T07:34:12.000Z">
-<meta property="article:modified_time" content="2022-09-28T09:28:01.906Z">
+<meta property="article:published_time" content="2022-09-28T09:46:26.000Z">
+<meta property="article:modified_time" content="2022-09-28T10:18:16.743Z">
 <meta property="article:author" content="Hyeji Kong">
+<meta property="article:tag" content="TIL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5a4456b5-3331-420a-a141-ca95c4eb81bb/Untitled.png">
 
 
-<link rel="canonical" href="http://hayden365.github.io/2022/09/27/TIL-20220927/">
+<link rel="canonical" href="http://hayden365.github.io/2022/09/28/TIL-20220928/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://hayden365.github.io/2022/09/27/TIL-20220927/","path":"2022/09/27/TIL-20220927/","title":"TIL-20220927"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://hayden365.github.io/2022/09/28/TIL-20220928/","path":"2022/09/28/TIL-20220928/","title":"TIL-20220928"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>TIL-20220927 | Hayden365's blog</title>
+<title>TIL-20220928 | Hayden365's blog</title>
   
 
 
@@ -111,7 +110,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%A4%EB%8A%98%EC%9D%80"><span class="nav-number">1.</span> <span class="nav-text">오늘은..</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#trailing-comma"><span class="nav-number">1.0.1.</span> <span class="nav-text">trailing comma</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%A4%EB%8A%98%EC%9D%80"><span class="nav-number">1.</span> <span class="nav-text">오늘은~</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,7 +171,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hayden365.github.io/2022/09/27/TIL-20220927/">
+    <link itemprop="mainEntityOfPage" href="http://hayden365.github.io/2022/09/28/TIL-20220928/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,12 +184,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="TIL-20220927 | Hayden365's blog">
+      <meta itemprop="name" content="TIL-20220928 | Hayden365's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          TIL-20220927
+          TIL-20220928
         </h1>
 
         <div class="post-meta-container">
@@ -200,15 +199,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-09-27 16:34:12" itemprop="dateCreated datePublished" datetime="2022-09-27T16:34:12+09:00">2022-09-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-28 18:28:01" itemprop="dateModified" datetime="2022-09-28T18:28:01+09:00">2022-09-28</time>
+      <time title="Created: 2022-09-28 18:46:26 / Modified: 19:18:16" itemprop="dateCreated datePublished" datetime="2022-09-28T18:46:26+09:00">2022-09-28</time>
     </span>
 
   
@@ -221,13 +214,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="오늘은"><a href="#오늘은" class="headerlink" title="오늘은.."></a>오늘은..</h2><hr>
-<p>어제에 이어서 깃&#x2F;깃허브를 CLI환경에서 다뤘다.<br>git branch newbranch<br>branch에 새로운내용 add, commit 후.<br>main branch로 돌아와서 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>newbranch의 commit과 main을 합친다.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge newbranch</span><br></pre></td></tr></table></figure>
-<p>branch에서 작성한 항목과 기존의 main의 내용간 충돌이 일어나면<br>해당 파일로 들어가서 수정해준다.<br>vim에서 normal mode상 dd를 사용해주면서 내용수정해주고, 수정한 내용의 파일을 add 해준다.</p>
-<h4 id="trailing-comma"><a href="#trailing-comma" class="headerlink" title="trailing comma"></a>trailing comma</h4><p>깃 상에서는 라인단위로 추적하기 때문에 한글자라도 바뀌면 해당라인을 버리고 새로운 라인이 만들어진다<br><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5a4456b5-3331-420a-a141-ca95c4eb81bb/Untitled.png" alt="Untitled"></p>
+        <h2 id="오늘은"><a href="#오늘은" class="headerlink" title="오늘은~"></a>오늘은~</h2><hr>
+<p>git branching model들을 배웠습니다.<br>회사마다 관리하는 branching model이 다르고 이것도한 파악해 두는 것이 중요하다.<br>git flow 전략을 중점적으로 배웠습니다.<br>develop브랜치에서 개발한 것을 차곡차곡 모은 다음 정기적으로 release하는 방식으로 이런 싸이클의 제품군에 많이 적용합니다.<br><a target="_blank" rel="noopener" href="https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html">git-flow</a><br>웹 사이트를 이용해서 git-flow를 이해하고 사용하면 접근이 쉬워진다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git flow init</span><br><span class="line">git flow feature start html-init</span><br></pre></td></tr></table></figure>
+<p>이렇게 하면 지금의 브랜치는 html-init이다.<br>html-init 브랜치 위에서 파일 만들고 편집하고 add, commit 한 뒤에</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow feature finish html-init</span><br></pre></td></tr></table></figure>
+<p>이러면 html-init 브랜치는 없어지고 develop 과 main 브랜치가 남게 됨.</p>
+<p>이후에는 release과정을 거친다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow release start v0.1</span><br></pre></td></tr></table></figure>
+<p>이러면 브랜치는 develop , main, release&#x2F;v0.1 이 존재한다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow release finish v0.1</span><br></pre></td></tr></table></figure>
+<p>release 과정을 마치면 다시 develop 과 main 브랜치가 남게 됩니다.<br>마지막으로 remote 깃 환경에 push 할 차례 입니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin develop</span><br><span class="line">git switch main</span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+<p>push할 때는 기존에는 레포지터리의main브랜치를 클론해서 시작했기 때문에 main브랜치는 우리가 작업한 main과 remote의 main이 같은 것을 git이 알고 있는 것과 같은 원리로<br>develop브랜치가 완전히 같은 브랜치 임을 명시하기위해 upstream 인 -u를 사용합니다.<br>그런뒤 main으로 switch후 main도 마찬가지로 push 해줍니다.</p>
+<hr>
+<p>git으로 작업환경 되돌리기.</p>
+<ul>
+<li>working directory 에서 되돌리기<ul>
+<li>이름바꾸기<br>  git mv 이전이름 새로운이름</li>
+<li>undo<br>  git restore 파일</li>
+</ul>
+</li>
+<li>stage 에서 내리기<br>git reset HEAD 파일<br>git restore –staged 파일</li>
+<li>commit 수정<br>가장 최신의 수정은 괜찮지만 이미 지나간 과거의 커밋을 수정하는 것은 그렇게 권장하지 않는다.</li>
+<li>commit 취소<br>reset은 다 날릴 수 있어서 최대한 쓰지 않는 것이 좋다.<br>revert를 쓰는 것을 추천. revert를 쓸 때는 돌아가려는 시점마다 커밋을 해야한다. 한번에 하려면 앞부분에 –no-commit을 붙인다.<br>git revert –no-commit HEAD~3..(..까지 명령이다.)</li>
+</ul>
 
     </div>
 
@@ -236,19 +247,19 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TIL/" rel="tag"># TIL</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/27/My-first-github-blog/" rel="prev" title="My first github blog">
-                  <i class="fa fa-chevron-left"></i> My first github blog
+                <a href="/2022/09/27/TIL-20220927/" rel="prev" title="TIL-20220927">
+                  <i class="fa fa-chevron-left"></i> TIL-20220927
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/28/TIL-20220928/" rel="next" title="TIL-20220928">
-                  TIL-20220928 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
