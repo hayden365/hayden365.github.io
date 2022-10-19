@@ -117,7 +117,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -155,6 +155,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://hayden365.github.io/2022/09/28/TIL-20220928/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hyeji Kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hayden365's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hayden365's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/28/TIL-20220928/" class="post-title-link" itemprop="url">TIL-20220928</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-28 18:46:26 / Modified: 19:18:16" itemprop="dateCreated datePublished" datetime="2022-09-28T18:46:26+09:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="오늘은"><a href="#오늘은" class="headerlink" title="오늘은~"></a>오늘은~</h2><hr>
+<p>git branching model들을 배웠습니다.<br>회사마다 관리하는 branching model이 다르고 이것도한 파악해 두는 것이 중요하다.<br>git flow 전략을 중점적으로 배웠습니다.<br>develop브랜치에서 개발한 것을 차곡차곡 모은 다음 정기적으로 release하는 방식으로 이런 싸이클의 제품군에 많이 적용합니다.<br><a target="_blank" rel="noopener" href="https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html">git-flow</a><br>웹 사이트를 이용해서 git-flow를 이해하고 사용하면 접근이 쉬워진다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git flow init</span><br><span class="line">git flow feature start html-init</span><br></pre></td></tr></table></figure>
+<p>이렇게 하면 지금의 브랜치는 html-init이다.<br>html-init 브랜치 위에서 파일 만들고 편집하고 add, commit 한 뒤에</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow feature finish html-init</span><br></pre></td></tr></table></figure>
+<p>이러면 html-init 브랜치는 없어지고 develop 과 main 브랜치가 남게 됨.</p>
+<p>이후에는 release과정을 거친다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow release start v0.1</span><br></pre></td></tr></table></figure>
+<p>이러면 브랜치는 develop , main, release&#x2F;v0.1 이 존재한다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow release finish v0.1</span><br></pre></td></tr></table></figure>
+<p>release 과정을 마치면 다시 develop 과 main 브랜치가 남게 됩니다.<br>마지막으로 remote 깃 환경에 push 할 차례 입니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin develop</span><br><span class="line">git switch main</span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+<p>push할 때는 기존에는 레포지터리의main브랜치를 클론해서 시작했기 때문에 main브랜치는 우리가 작업한 main과 remote의 main이 같은 것을 git이 알고 있는 것과 같은 원리로<br>develop브랜치가 완전히 같은 브랜치 임을 명시하기위해 upstream 인 -u를 사용합니다.<br>그런뒤 main으로 switch후 main도 마찬가지로 push 해줍니다.</p>
+<hr>
+<p>git으로 작업환경 되돌리기.</p>
+<ul>
+<li>working directory 에서 되돌리기<ul>
+<li>이름바꾸기<br>  git mv 이전이름 새로운이름</li>
+<li>undo<br>  git restore 파일</li>
+</ul>
+</li>
+<li>stage 에서 내리기<br>git reset HEAD 파일<br>git restore –staged 파일</li>
+<li>commit 수정<br>가장 최신의 수정은 괜찮지만 이미 지나간 과거의 커밋을 수정하는 것은 그렇게 권장하지 않는다.</li>
+<li>commit 취소<br>reset은 다 날릴 수 있어서 최대한 쓰지 않는 것이 좋다.<br>revert를 쓰는 것을 추천. revert를 쓸 때는 돌아가려는 시점마다 커밋을 해야한다. 한번에 하려면 앞부분에 –no-commit을 붙인다.<br>git revert –no-commit HEAD~3..(..까지 명령이다.)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
